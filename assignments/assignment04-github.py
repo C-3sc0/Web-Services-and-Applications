@@ -8,6 +8,21 @@ import requests
 from github import Github
 from config import api_keys as cfg
 
+# retrieving the API key information
+apikey = cfg['githubkey']
+g = Github(apikey)
+
+def get_repo(repo_name):
+    repo = g.get_repo(repo_name)
+    return repo_name, repo.clone_url
+
+# add your repository path and name below:
+repo_name = "C-3sc0/aprivateone"
+name, url = get_repo(repo_name)
+print (f'Link of my repository {name} is {url}')
+
+
+
 
 
 
